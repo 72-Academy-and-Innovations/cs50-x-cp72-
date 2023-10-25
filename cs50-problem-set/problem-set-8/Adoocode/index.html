@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adoo's Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Welcome Enter your name:</h2>
+        <form id="nameForm">
+            <input type="text" id="userName" placeholder="Your Name" required>
+            <button type="button" onclick="submitName()">Submit</button>
+        </form>
+    </div>
+    <div class="header">
+        <h1>Welcome to Adoo's Homepage</h1>
+        <div id="welcomeMessage"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 about-me">
+                <h2>About Dev</h2>
+                <p>
+                    Hello world, I'm Adoo David. This is my first official homepage. I love web development and learning new things.
+                </p>
+            </div>
+            <div class="col-md-6 latest-posts">
+                <h2>If you seek advice on web development, contact these people</h2>
+                <ul>
+                    <li><a href="#" onclick="showMessage('+234 808 920 0008')">Bash the Hacker</a></li>
+                    <li><a href="#" onclick="showMessage('+234 913 013 1915')">Lord Python Stephen</a></li>
+                    <li><a href="#" onclick="showMessage('+234 807 655 4420')">Ayo Graphics</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="current-time">
+            <h2>Date and Time</h2>
+            <p id="currentDateTime">Loading...</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+
+        function updateCurrentDateTime() {
+            const dateElement = document.getElementById("currentDateTime");
+            const updateDateTime = () => {
+                const now = new Date();
+                const formattedDate = now.toLocaleString();
+                dateElement.textContent = `Date and Time: ${formattedDate}`;
+            }
+            updateDateTime();
+            setInterval(updateDateTime, 1000);  
+        }
+
+        updateCurrentDateTime();
+
+        function submitName() {
+            const userName = document.getElementById("userName").value;
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            if (userName) {
+                welcomeMessage.textContent = `Thank you, ${userName}!`;
+                document.getElementById("nameForm").style.display = "none";
+            }
+        }
+    </script>
+    <div class="footer">
+        &copy; 2023 Adoo's development. All rights reserved.
+    </div>
+</body>
+</html>
