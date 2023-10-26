@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Security A.I</title>
+    <style>
+        
+        body{             
+            background-color: rgb(26, 4, 48);             
+            justify-content: center;             
+            align-items: center;             
+            margin-left: 300px;         
+        }         
+        img{             
+            border-radius: 30px;             
+            border: 2px solid white;   
+            height: 570px;      
+        }         
+        input{             
+            height: 30px;             
+            width: 300px;             
+            margin-left: 300px;             
+            border-radius: 10px;         
+        }         
+        button{             
+            border-radius: 10px;            
+             height: 40px;
+             color: white;
+             background-color: blue;         
+        }     
+        h1{             
+                color: aliceblue;             
+                font-size: 200%;             
+                margin-left: 300px;             
+                font-family: cursive;         
+        }         
+                
+        span{             
+            color: greenyellow;         
+        }         
+        p{             
+            font-size: 20px;                      
+        }
+        .but{
+            background-color: red;
+            color: white;
+        }
+
+    </style>
+    <script>
+        // An array of Ultron riddles
+        const ultronRiddles = [
+            "I'm a robotic villain who was created by Tony Stark. Who am I?",
+            "I have a vibranium body and a desire to destroy humanity. What's my name?",
+            "In the Marvel Universe, I'm known as an AI gone rogue. Identify me.",
+            "I am the main antagonist in 'Avengers: Age of Ultron.' Who is this character?",
+        ];
+
+        // Function to generate a random Ultron riddle
+        function generateRandomRiddle() {
+            const randomIndex = Math.floor(Math.random() * ultronRiddles.length);
+            const randomRiddle = ultronRiddles[randomIndex];
+            return randomRiddle;
+        }
+
+        // Function to display the riddle in an alert
+        function showRandomRiddle() {
+            const randomRiddle = generateRandomRiddle();
+            alert(randomRiddle);
+        }
+    </script>
+</head>
+<body>
+    <h1>JARVIS Security A.I</h1>
+    <img src="bg.jpg" alt="background">
+    <p style="color: wheat; margin-left: 300px;">Try to guess the Password <span>::: Note I Am Case Sensitive   :::</span></p>
+    <div>
+        
+        <form onsubmit="check(); return false;">
+        <input autocomplete="off" autofocus id="name" placeholder="Enter the password">
+        <button type="submit">Check</button>
+        <button class="but" id="generateRiddleButton">Generate Hint!</button>
+    </form>
+    </div> 
+
+    <script>
+        const generateRiddleButton = document.getElementById('generateRiddleButton');
+        generateRiddleButton.addEventListener('click', showRandomRiddle);
+
+        function check() {
+            const name = document.querySelector('#name').value;
+            if (name === 'Ultron') {
+                alert(name + ' is the correct Password!');
+            } else {
+                alert(name + ' is the wrong Password!!');
+            }
+        }
+    </script>
+</body>
+</html>
